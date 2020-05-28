@@ -9,13 +9,56 @@ const ServicioPg = require('../services/postgres');
  * @param {*} moto json de la aplicación
  */
 let validarMoto = (moto) => {
-  if (!moto) {
-    throw {
-      ok: false,
-      mensaje: "La información de la moto es obligatoria"
-    };
-  };
- 
+    if (!moto) {
+        throw {
+          ok: false,
+          mensaje: "La información de la moto es obligatoria.",
+        };
+      }
+    
+      if (!moto.placa) {
+        throw { ok: false, mensaje: "La cédula es obligatoria." };
+      }
+      if (!moto.estado) {
+        throw { ok: false, mensaje: "El estado es obligatorio." };
+      }
+      if (!moto.clase) {
+        throw { ok: false, mensaje: "La clase es obligatoria." };
+      }
+      if (!moto.marca) {
+        throw { ok: false, mensaje: "El marca es obligatorio." };
+      }
+      if (!moto.modelo) {
+        throw { ok: false, mensaje: "El modelo es obligatorio." };
+      }
+      if (!moto.color) {
+        throw { ok: false, mensaje: "El color es obligatorio." };
+      }
+      if (!moto.cilindraje) {
+        throw { ok: false, mensaje: "El cilindraje es obligatorio." };
+      }
+      if (!moto.id_propietario) {
+        throw { ok: false, mensaje: "El soat es obligatorio." };
+      }
+      if (!moto.nro_soat) {
+        throw { ok: false, mensaje: "El soat es obligatorio." };
+      }
+      if (!moto.vencimiento_soat) {
+        throw {
+          ok: false,
+          mensaje: "La fecha de vencimiento del soat es obligatoria.",
+        };
+      }
+      if (!moto.nro_tecnomecanica) {
+        throw { ok: false, mensaje: "El chequeo técnicomecanico es obligatorio." };
+      }
+      if (!moto.vencimiento_tecnomecanica) {
+        throw {
+          ok: false,
+          mensaje:
+            "La fecha de vencimiento del chequeo técnicomecanico es obligatoria.",
+        };
+      }
 }
 
 /**

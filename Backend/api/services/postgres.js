@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 
-class servicioPG {
+class ServicioPG {
 	constructor() {
 		this.pool = new Pool({
             user: "dllo_web_udem",
@@ -13,10 +13,14 @@ class servicioPG {
 		//console.log('Conectado a la base de datos');
 	}
 
-	async ejecutarSql(sql, data) {
-		let res = this.pool.query(sql, data);
-		return res;
+	async ejecutarSql(sql) {
+		let respuesta = this.pool.query(sql);
+		return respuesta;
 	}
+	async ejecutarSql(sql, valores) {
+		let respuesta = await this.pool.query(sql, valores);
+		return respuesta;
+	  }
 }
 
-module.exports = servicioPG;
+module.exports = ServicioPG;
