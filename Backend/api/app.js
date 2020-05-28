@@ -15,9 +15,10 @@ app.get("/", (req, res) => {
 
 //Importar las rutas con los endpoints especificos
 const rutas_motos = require("./routes/motos");
+const rutas_mantenimientos = require("./routes/mantenimientos");
 const rutas_autenticacion = require("./routes/autenticacion");
 const rutas_usuarios = require("./routes/usuarios");
-app.use(rutas_motos, rutas_autenticacion, rutas_usuarios);
+app.use(rutas_motos, rutas_autenticacion, rutas_usuarios, rutas_mantenimientos);
 
 //Puerto
 const PORT = process.env.PORT || 3001;
