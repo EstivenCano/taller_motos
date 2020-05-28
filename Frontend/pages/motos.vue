@@ -171,7 +171,7 @@
               @click="cancelarEdicion()"
               variant="danger"
               v-if="enEdicion"
-              >Cencelar</b-button
+              >Cancelar</b-button
             >
           </b-form>
         </b-card-text>

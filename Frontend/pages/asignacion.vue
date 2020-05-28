@@ -49,7 +49,7 @@
               <b-form-input
                 id="trabajos_realizados"
                 v-model="form.trabajos_realizados"
-                required
+                disabled
                 placeholder="Describe el trabajo realizado"
               ></b-form-input>
             </b-form-group>
@@ -62,7 +62,7 @@
               <b-form-input
                 id="horas_invertidas"
                 v-model="form.horas_invertidas"
-                required
+                disabled
                 placeholder="Ingresa las horas invertidas en el mantenimiento"
               ></b-form-input>
             </b-form-group>
@@ -73,33 +73,16 @@
             <b-button type="reset" variant="danger" v-if="!enEdicion"
               >Limpiar</b-button
             >
-            <b-button
-              @click="actualizarMoto()"
-              variant="primary"
-              v-if="enEdicion"
-              >Actualizar</b-button
-            >
-            <b-button
-              @click="cancelarEdicion()"
-              variant="danger"
-              v-if="enEdicion"
-              >Cencelar</b-button
-            >
           </b-form>
         </b-card-text>
         <div>
           <b-table dark striped hover :items="mantenimientos" :fields="fields">
-            <template v-slot:cell(acciones)="">
+            <template v-slot:cell(acciones)="row">
               <!-- Botones para editar y eliminar aplicaciones de la lista -->
               <b-button
                 size="sm"
                 class="mr-2"
-                variant="warning"
-                >Modificar</b-button
-              >
-              <b-button
-                size="sm"
-                class="mr-2"
+                @click="eliminarAsignacion(row)"
                 variant="danger"
                 >Eliminar</b-button
               >

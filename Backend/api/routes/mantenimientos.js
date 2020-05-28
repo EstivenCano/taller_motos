@@ -39,7 +39,7 @@ router.get("/mantenimiento", (req, res) => {
       let info_mantenimiento = req.body;
       //Validar la informacion, si hay un error se envia al catch
       console.log(info_mantenimiento);
-      validarMantenimiento(info_mantenimiento);
+      //validarMantenimiento(info_mantenimiento);
   
       //Guardar la aplicación en base de datos
       guardarMantenimiento(info_mantenimiento).then(respuestaDB => {
@@ -64,7 +64,10 @@ router.get("/mantenimiento", (req, res) => {
  * Eliminar un mantenimiento según su placa y id_mecanico
  */
 router.delete("/mantenimiento", (req, res) => {
-  let mantenimiento = req.body; 
+  console.log(req.body);
+  
+  let mantenimiento = req.body;
+   
   eliminarMantenimiento(mantenimiento).then(respuestaDB => {
     res.send({
       ok: true,
