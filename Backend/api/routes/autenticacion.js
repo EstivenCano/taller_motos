@@ -3,7 +3,7 @@ const router = express.Router();
 const _controlador = require("../controllers/autenticacion");
 
 // MIDDLEWARE: Filtro
-router.use((req, res, next) => {
+/*router.use((req, res, next) => {
   try {
     let url = req.url;
     if (url === "/login") {
@@ -22,7 +22,7 @@ router.use((req, res, next) => {
     });
   }
 });
-
+*/
 router.get("/verificar", (req, res) => {
   try {
     let token = req.headers.token;
@@ -56,6 +56,7 @@ router.post("/login", (req, res) => {
           res
             .status(200)
             .send({ ok: true, info: token, mensaje: "Usuario autenticado." });
+            localStorage.setItem("token", token);
         } else {
           res.status(400).send({
             ok: false,

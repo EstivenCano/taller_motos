@@ -171,7 +171,7 @@ let modificarMoto = async (moto, placa) => {
    modelo='${moto.modelo}',
    color='${moto.color}', 
    cilindraje = '${moto.cilindraje}',
-   id_propietario='${moto.color}',
+   id_propietario='${moto.id_propietario}',
    nro_soat='${moto.nro_soat}',
    vencimiento_soat='${moto.vencimiento_soat}',
    nro_tecnomecanica='${moto.nro_tecnomecanica}',
@@ -180,7 +180,6 @@ let modificarMoto = async (moto, placa) => {
   let respuesta = await servicio.ejecutarSql(sql)
   return respuesta;
 }
-
 
 module.exports = {
     validarMoto,   

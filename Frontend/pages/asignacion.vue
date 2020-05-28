@@ -1,36 +1,8 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        Bienvenido
-      </h1>
-      <h2 class="subtitle">
-        Gestión taller de motos
-      </h2>
-      <div class="links">
-        <a
-          href="https://github.com/EstivenCano/taller_motos"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub Proyecto
-        </a>
-      </div>
-    </div>
+
   </div>
 </template>
-
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
-
 <style>
 .container {
   margin: 0 auto;

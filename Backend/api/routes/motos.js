@@ -102,7 +102,7 @@ router.put("/moto/:placa",(req,res) =>{
   //Capturar el parámetro de la ruta
   let placa = req.params.placa;
 
-  let moto = req.body;
+  let moto = req.body;  
   
   modificarMoto(moto,placa).then(respuestaDB => {
     res.send({ok:true , mensaje: "Moto modificada", info: respuestaDB})

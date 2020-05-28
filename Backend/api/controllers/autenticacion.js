@@ -40,7 +40,8 @@ let consultarUsuario = async (usuario) => {
 
 let generarToken = (usuario) => {
   delete usuario.clave;
-  let token = jwt.sign(usuario, SECRET_KEY, { expiresIn: "1h" });
+  let token = jwt.sign(usuario, SECRET_KEY, { expiresIn: "8h" });
+  
   return token;
 };
 
