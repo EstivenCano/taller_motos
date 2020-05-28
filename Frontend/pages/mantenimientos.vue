@@ -2,7 +2,7 @@
   <div>
     <center>
       <h2 id="subtitle">
-        Gestión de motos
+        Mantenimientos
       </h2>
     </center>
     <div>
@@ -14,11 +14,11 @@
       >
         <b-card-text>
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-            <b-form-group id="input-group-1" label="Documento mecánico:" label-for="input-1" v-if="!enEdicion">
+            <b-form-group id="input-group-1" label="Documento mecánico:" label-for="input-1">
               <b-form-input
                 id="id_mecanico"
                 v-model="form.id_mecanico"
-                v-if="!enEdicion"
+                disabled
                 required
                 placeholder="Ingresa documento"
               ></b-form-input>
@@ -32,6 +32,7 @@
               <b-form-input
                 id="placa"
                 v-model="form.placa"
+                disabled
                 required
                 placeholder="Ingresa la placa de la moto"
               ></b-form-input>
@@ -41,6 +42,7 @@
               <b-form-input
                 id="fecha"
                 v-model="form.fecha"
+                disabled
                 required
                 placeholder="Ingresa la fecha del mantenimiento"
               ></b-form-input>
@@ -68,41 +70,25 @@
               ></b-form-input>
             </b-form-group>
 
-            <b-button type="submit" variant="primary" v-if="!enEdicion"
-              >Agregar</b-button
-            >
-            <b-button type="reset" variant="danger" v-if="!enEdicion"
-              >Limpiar</b-button
-            >
             <b-button
-              @click="actualizarMoto()"
+              @click="actualizarMantenimiento()"
               variant="primary"
               v-if="enEdicion"
               >Actualizar</b-button
             >
-            <b-button
-              @click="cancelarEdicion()"
-              variant="danger"
-              v-if="enEdicion"
-              >Cencelar</b-button
-            >
+
           </b-form>
         </b-card-text>
         <div>
           <b-table dark striped hover :items="mantenimientos" :fields="fields">
-            <template v-slot:cell(acciones)="">
+            <template v-slot:cell(acciones)="row">
               <!-- Botones para editar y eliminar aplicaciones de la lista -->
               <b-button
                 size="sm"
                 class="mr-2"
+                @click="modificarMantenimiento(row)"
                 variant="warning"
                 >Modificar</b-button
-              >
-              <b-button
-                size="sm"
-                class="mr-2"
-                variant="danger"
-                >Eliminar</b-button
               >
             </template>
           </b-table>

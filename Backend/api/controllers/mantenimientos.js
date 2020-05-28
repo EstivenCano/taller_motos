@@ -127,19 +127,18 @@ let eliminarMantenimiento = async (mantenimiento) => {
 let modificarMantenimiento = async (mantenimiento) => {
 
   let servicio = new ServicioPg();
-  let sql = `UPDATE  mantenimientos SET id_mecanico=$1, placa=$2, 
-  fecha=$3, trabajos_realizados=$4, horas_invertidas=$5 WHERE placa = $6 AND 
-  fecha = $7 AND id_mecanico =$8;`;
+  let sql = `UPDATE mantenimientos SET id_mecanico=$1, placa=$2, 
+  fecha=$3, trabajos_realizados=$4, horas_invertidas=$5 WHERE placa = $2 AND 
+  fecha = $3 AND id_mecanico = $1;`;
   let values = [
       mantenimiento.id_mecanico,
       mantenimiento.placa,
       mantenimiento.fecha,
       mantenimiento.trabajos_realizados,
       mantenimiento.horas_invertidas,
-      mantenimiento.placaAnterior,
-      mantenimiento.fechaAnterior,
-      mantenimiento.id_mecanicoAnterior,
   ];
+  console.log(values);
+  
   let respuesta = await servicio.ejecutarSql(sql,values)
   return respuesta;
 }
